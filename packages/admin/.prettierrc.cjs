@@ -1,6 +1,7 @@
-{
-    "plugins": ["@trivago/prettier-plugin-sort-imports"],
-    "importOrder": [
+module.exports = {
+    ...require("../../.prettierrc.cjs"),
+    plugins: ["@trivago/prettier-plugin-sort-imports"],
+    importOrder: [
         "^react",
         "<THIRD_PARTY_MODULES>",
 
@@ -17,8 +18,8 @@
         "^(@/utils)(.*)$",
         "^(@/styles)(.*)$",
 
-        "^(.*)/(.*)$"
+        "^(.*)/(.*)$",
     ],
-    "importOrderSeparation": true,
-    "importOrderSortSpecifiers": false
-}
+    importOrderSeparation: true,
+    importOrderSortSpecifiers: false,
+};
