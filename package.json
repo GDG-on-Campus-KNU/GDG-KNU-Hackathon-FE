@@ -9,10 +9,15 @@
     ],
     "scripts": {
         "client": "yarn workspace client",
-        "admin": "yarn workspace admin"
+        "admin": "yarn workspace admin",
+        "prettier": "prettier --write '**/*.{ts,tsx}'"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "description": ""
+    "description": "",
+    "devDependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "prettier": "^3.3.3"
+    }
 }
