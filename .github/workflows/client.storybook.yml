@@ -1,0 +1,17 @@
+name: "Deploy Storybook"
+
+on:
+    pull_request:
+        branches: ["develop"]
+        types: ["closed"]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - run: yarn
+            - uses: chromaui/action
+              with:
+                  projectToken: ${{secrets.CHROMATIC_PROJECT_TOKEN}}
