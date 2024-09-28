@@ -10,4 +10,14 @@ export const globalStyle = css`
 
         box-sizing: border-box;
     }
+
+    #root {
+        background: linear-gradient(180deg, var(--color-dark-blue) 0%, var(--color-blue) 61%);
+    }
+
+    :root {
+        --color-dark-blue: #255aae;
+        --color-blue: #3b90cf;
+        --color-white: #fff;
+    }
 `;

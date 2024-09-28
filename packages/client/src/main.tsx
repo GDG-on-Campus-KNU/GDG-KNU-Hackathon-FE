@@ -3,8 +3,10 @@ import { createRoot } from "react-dom/client";
 
 import gsap from "gsap";
 
-import { globalStyle } from "./styles/global";
-import App from "@/App.tsx";
+import Page from "@/pages/Page";
+
+import { globalStyle } from "@/styles/global";
+
 import { Global } from "@emotion/react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <App />
+        <Page />
         <Global styles={[globalStyle]} />
     </StrictMode>,
 );
