@@ -11,5 +11,8 @@
     "introductionSection": {
         "subtitlie": "",
         "title": ""
+    },
+    "sponsorSection": {
+        "imgLists": ["/logo/logo-googleCloud.svg", "/logo/logo-swEdu.svg"]
     }
 }

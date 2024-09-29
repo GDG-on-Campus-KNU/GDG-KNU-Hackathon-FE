@@ -13,6 +13,7 @@ export const globalStyle = css`
 
     #root {
         background: linear-gradient(180deg, var(--color-dark-blue) 0%, var(--color-blue) 61%);
+        height: 500vh;
     }
 
     :root {

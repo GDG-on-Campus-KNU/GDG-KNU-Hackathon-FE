@@ -1,7 +1,10 @@
 import { NavBar } from "../layouts/NavBar/NavBar";
+import { ApplySection } from "./ApplySection/ApplySection";
 import { HeroSection } from "./HeroSection/HeroSection";
 import { IntroductionSection } from "./IntroductionSection/IntroductionSection";
 import * as PageStyles from "./Page.style";
+import { SponsorSection } from "./SponsorSection/SponsorSection";
+import { TimeLineSection } from "./TimeLineSection/TimeLineSection";
 import data from "@/__data__/index.json";
 
 export default function Page() {
@@ -14,6 +17,9 @@ export default function Page() {
                 location={data.heroSection.location}
             />
             <IntroductionSection />
+            <TimeLineSection />
+            <SponsorSection imgLists={data.sponsorSection.imgLists} />
+            <ApplySection />
         </PageStyles.Main>
     );
 }
