@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-import { HeroBackDrop } from "@/components/BackDrop/BackDrop";
+import { HeroBackDrop } from "@/components/BackDrop/Hero";
 import { Button } from "@/components/Button/Button";
 import { Chip } from "@/components/Chip/Chip";
 import { Text } from "@/components/Text/Text";
@@ -31,8 +31,8 @@ export const HeroSection = (props: HeroSectionProps) => {
 
     return (
         <HeroSectionStyles.Section>
-            <HeroSectionStyles.Wrapper className="hero-content">
-                <HeroSectionStyles.Header>
+            <HeroSectionStyles.Wrapper>
+                <HeroSectionStyles.Header className="hero-content">
                     <HeroSectionStyles.HeaderItems>
                         <Chip width="150px">{props.date}</Chip>
 
@@ -46,14 +46,19 @@ export const HeroSection = (props: HeroSectionProps) => {
                         </HeroSectionStyles.HeaderItem>
 
                         <Chip width="150px">{props.location}</Chip>
+
+                        <HeroSectionStyles.MobileChipContainer>
+                            <Chip width="150px">{props.location}</Chip>
+                            <Chip width="150px">{props.date}</Chip>
+                        </HeroSectionStyles.MobileChipContainer>
                     </HeroSectionStyles.HeaderItems>
                 </HeroSectionStyles.Header>
 
-                <HeroSectionStyles.Body>
+                <HeroSectionStyles.Body className="hero-content">
                     <Button variant="white">신청하기</Button>
                 </HeroSectionStyles.Body>
 
-                <HeroBackDrop endHeight={3000} />
+                <HeroBackDrop endHeight={1500} />
             </HeroSectionStyles.Wrapper>
         </HeroSectionStyles.Section>
     );
