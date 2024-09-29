@@ -2,6 +2,8 @@ import { ChipProps } from "./Chip";
 import styled from "@emotion/styled";
 
 export const Container = styled.div<ChipProps>`
+    flex-shrink: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
