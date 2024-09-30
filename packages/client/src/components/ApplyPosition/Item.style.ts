@@ -7,7 +7,7 @@ export const Element = styled.div<{ selected: boolean }>`
     width: fit-content;
     height: 30px;
 
-    padding: 0px 10px;
+    padding: 0px 20px;
     border: 1px solid var(--color-blue);
     border-radius: 4px;
 
