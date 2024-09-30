@@ -14,7 +14,6 @@ export const applyService = {
         for (const [key, value] of Object.entries(body)) {
             if (requiredFields.includes(key) && !value) {
                 throw new Error(`${key} 필드를 입력해주세요`);
-                return false;
             }
         }
     },
