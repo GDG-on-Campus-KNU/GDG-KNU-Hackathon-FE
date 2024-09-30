@@ -55,10 +55,15 @@ export const HeroSection = (props: HeroSectionProps) => {
                 </HeroSectionStyles.Header>
 
                 <HeroSectionStyles.Body className="hero-content">
-                    <Button variant="white">신청하기</Button>
+                    <Button
+                        variant="white"
+                        onClick={() => document.getElementById("apply-section")?.scrollIntoView({ behavior: "smooth" })}
+                    >
+                        신청하기
+                    </Button>
                 </HeroSectionStyles.Body>
 
-                <HeroBackDrop endHeight={1500} />
+                <HeroBackDrop endHeight={1000} />
             </HeroSectionStyles.Wrapper>
         </HeroSectionStyles.Section>
     );
