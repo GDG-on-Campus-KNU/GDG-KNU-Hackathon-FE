@@ -1,5 +1,3 @@
-import gsap from "gsap";
-
 import { ApplyPositionContainer } from "@/components/ApplyPosition/Container";
 import { ApplyPositionItem } from "@/components/ApplyPosition/Item";
 import { SubmitButton } from "@/components/Button/SubmitButton";
