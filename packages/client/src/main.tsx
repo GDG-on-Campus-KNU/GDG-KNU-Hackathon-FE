@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import gsap from "gsap";
@@ -15,8 +14,8 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 createRoot(document.getElementById("root")!).render(
-    <StrictMode>
+    <>
         <Page />
         <Global styles={[globalStyle]} />
-    </StrictMode>,
+    </>,
 );
