@@ -1,6 +1,10 @@
 import { useCallback, useRef, useState } from "react";
 
+import { Text } from "@/components/Text/Text";
+
 import { applyService } from "@/services/service";
+
+import { useApplyModal } from "@/context/useApplyModal";
 
 export const useApply = () => {
     const [isPending, setIsPending] = useState<boolean>(false);
@@ -18,6 +22,8 @@ export const useApply = () => {
 
     const [position, setPosition] = useState<ApplyPosition | null>(null);
 
+    const { openModal } = useApplyModal();
+
     const handleSubmit = useCallback(() => {
         const body: ApplyRequestBody = {
             name: nameRef.current?.value,
@@ -30,21 +36,46 @@ export const useApply = () => {
             email: emailRef.current?.value,
         };
 
-        console.log(body);
         setIsPending(true);
         applyService
             .apply(body)
             .then((data) => {
                 setData(data);
+                openModal({
+                    title: (
+                        <Text size="l" weight="bold" color="var(--color-blue)">
+                            신청 완료
+                        </Text>
+                    ),
+                    description: (
+                        <Text size="s" color="var(--color-blue)">
+                            이메일을 확인해 주세요
+                        </Text>
+                    ),
+                });
             })
             .catch((err) => {
                 setIsError(true);
                 setError(err);
+
+                console.log(err);
+                openModal({
+                    title: (
+                        <Text size="l" weight="bold" color="var(--color-blue)">
+                            신청 실패
+                        </Text>
+                    ),
+                    description: (
+                        <Text size="s" color="var(--color-blue)">
+                            {String(err.message)}
+                        </Text>
+                    ),
+                });
             })
             .finally(() => {
                 setIsPending(false);
             });
-    }, [position]);
+    }, [position, openModal]);
 
     return {
         isPending,
