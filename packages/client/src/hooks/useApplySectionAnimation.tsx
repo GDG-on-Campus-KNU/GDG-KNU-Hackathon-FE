@@ -19,7 +19,6 @@ export const useApplySectionAnimation = () => {
                         start: "top 50%",
                         end: "40% 60%",
                         scrub: 2,
-                        markers: true,
                     },
                 },
             );
@@ -37,7 +36,6 @@ export const useApplySectionAnimation = () => {
                         start: "top 50%",
                         end: "40% 60%",
                         scrub: 2,
-                        markers: true,
                     },
                 },
             );
@@ -54,7 +52,6 @@ export const useApplySectionAnimation = () => {
                     start: "top 50%",
                     end: "40% 60%",
                     scrub: 2,
-                    markers: true,
                 },
             },
         );
