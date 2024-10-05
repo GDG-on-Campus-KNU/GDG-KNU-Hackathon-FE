@@ -1,0 +1,44 @@
+name: Deply Client Page to AWS
+
+on:
+    pull_request:
+        branches: ["release"]
+        types: ["closed"]
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Install Yarn
+              run: npm i -g yarn
+
+            - name: Install Dependencies
+              run: yarn client install
+
+            - name: Build
+              run: yarn client build:prerender
+
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+                  aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+                  aws-region: ap-northeast-2
+
+            - name: Upload to S3 Bucket
+              env:
+                  BUCKET_NAME: ${{secrets.CLIENT_BUCKET_NAME}}
+              run: aws s3 sync packages/client/dist s3://$BUCKET_NAME --delete
+
+            - name: Invalidate Cloudfront Cache
+              run: aws cloudfront create-invalidation --distribution-id ${{secrets.CLIENT_CLOUDFRONT_ID}} --paths /*

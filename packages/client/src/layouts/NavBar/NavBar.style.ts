@@ -33,13 +33,13 @@ export const Container = styled.div`
     height: 100%;
 `;
 
-export const Logo = styled.img`
-    display: block;
-    height: 100%;
-`;
-
 export const Item = styled.div`
     span {
         margin: 0px 5px;
+    }
+    ${BREAKPOINT.MOBILE} {
+        &:first-child > span:first-child {
+            display: none;
+        }
     }
 `;

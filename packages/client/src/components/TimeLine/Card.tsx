@@ -29,10 +29,9 @@ export const TimeLineCard = (props: TimeLineCardProps) => {
                 opacity: 1,
                 scrollTrigger: {
                     trigger: timelineRef.current,
-                    start: "top 40%",
-                    end: "bottom 40%",
+                    start: "top 70%",
+                    end: "bottom 70%",
                     toggleActions: "play play resume none",
-                    markers: true,
                 },
             },
         );
@@ -44,7 +43,7 @@ export const TimeLineCard = (props: TimeLineCardProps) => {
                 <Text size="m" weight="bold">
                     {props.date}
                 </Text>
-                <TimeLineCardStyles.Dot src={timelineDot} />
+                <TimeLineCardStyles.Dot src={timelineDot} alt="timeline-dot" />
             </TimeLineCardStyles.Aside>
 
             <TimeLineCardStyles.Line />

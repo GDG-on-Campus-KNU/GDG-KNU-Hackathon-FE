@@ -8,6 +8,7 @@ import { SectionTitle } from "@/components/Title/SectionTitle";
 import { useApply } from "@/hooks/useApply";
 import { useApplySectionAnimation } from "@/hooks/useApplySectionAnimation";
 
+import envelopBack from "@/assets/images/envelop-behind.svg";
 import envelopFront from "@/assets/images/envelop-front.svg";
 import logo from "@/assets/images/logoBlue.svg";
 
@@ -45,7 +46,7 @@ export const ApplySection = () => {
             <ApplySectionStyles.EnvelopWrapper id="apply-section">
                 <ApplySectionStyles.EnvelopContainer className="envelop-container">
                     <ApplySectionStyles.Form>
-                        <ApplySectionStyles.Logo src={logo} />
+                        <ApplySectionStyles.Logo src={logo} alt="apply-logo" />
 
                         <ApplySectionStyles.FormContainer>
                             <Input ref={nameRef} label="이름" type="text" />
@@ -78,12 +79,7 @@ export const ApplySection = () => {
                         <ApplySectionStyles.Line />
 
                         <ApplySectionStyles.FormContainer>
-                            <Input
-                                ref={githubIdRef}
-                                label="깃허브 아이디"
-                                type="text"
-                                disabled={position === "DESIGN"}
-                            />
+                            <Input ref={githubIdRef} label="깃허브 ID" type="text" disabled={position === "DESIGN"} />
                             <Input ref={teamNameRef} label="팀이름" type="text" />
                         </ApplySectionStyles.FormContainer>
 
@@ -91,7 +87,10 @@ export const ApplySection = () => {
                     </ApplySectionStyles.Form>
                 </ApplySectionStyles.EnvelopContainer>
 
-                <ApplySectionStyles.EnvelopFront className="envelop" src={envelopFront} />
+                <ApplySectionStyles.Envelop>
+                    <ApplySectionStyles.EnvelopFront className="envelop" src={envelopFront} alt="envelop-cover" />
+                    <ApplySectionStyles.EnvelopBack className="envelop" src={envelopBack} alt="envelop-cover" />
+                </ApplySectionStyles.Envelop>
             </ApplySectionStyles.EnvelopWrapper>
         </>
     );

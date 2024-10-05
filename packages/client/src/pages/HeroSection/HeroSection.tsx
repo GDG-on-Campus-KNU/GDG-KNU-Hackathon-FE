@@ -42,7 +42,7 @@ export const HeroSection = (props: HeroSectionProps) => {
                                     {props.title}
                                 </Text>
                             </HeroSectionStyles.Title>
-                            <HeroSectionStyles.MainLogo src={mainLogo} />
+                            <HeroSectionStyles.MainLogo src={mainLogo} alt="main-logo" />
                         </HeroSectionStyles.HeaderItem>
 
                         <Chip width="150px">{props.location}</Chip>

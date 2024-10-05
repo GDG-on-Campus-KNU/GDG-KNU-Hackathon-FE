@@ -16,12 +16,13 @@ export const TimeLineSection = () => {
                     </>
                 }
             />
-            {data.timelineSection.map((timeline) => {
+            {data.timelineSection.map((timeline, index) => {
                 return (
-                    <TimeLineContainer>
-                        {timeline.map((schedule) => {
+                    <TimeLineContainer key={index}>
+                        {timeline.map((schedule, index) => {
                             return (
                                 <TimeLineCard
+                                    key={index}
                                     date={schedule.date}
                                     time={schedule.time}
                                     title={schedule.title}

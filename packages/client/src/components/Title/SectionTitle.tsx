@@ -1,4 +1,3 @@
-import { Text } from "../Text/Text";
 import * as SectionTitleStyles from "./SectionTitle.style";
 
 export interface SectionTitleProps {
@@ -9,14 +8,8 @@ export interface SectionTitleProps {
 export const SectionTitle = (props: SectionTitleProps) => {
     return (
         <SectionTitleStyles.Container>
-            <SectionTitleStyles.SubTitle>
-                <Text size="m">{props.subtitle}</Text>
-            </SectionTitleStyles.SubTitle>
-            <SectionTitleStyles.Title>
-                <Text size="xl" weight="bold">
-                    {props.title}
-                </Text>
-            </SectionTitleStyles.Title>
+            <SectionTitleStyles.SubTitle>{props.subtitle}</SectionTitleStyles.SubTitle>
+            <SectionTitleStyles.Title>{props.title}</SectionTitleStyles.Title>
         </SectionTitleStyles.Container>
     );
 };

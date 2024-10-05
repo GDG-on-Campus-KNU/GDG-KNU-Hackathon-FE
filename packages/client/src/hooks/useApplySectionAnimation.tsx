@@ -28,7 +28,7 @@ export const useApplySectionAnimation = () => {
                 ".envelop",
                 { left: "50%", xPercent: -50, bottom: "30%" },
                 {
-                    bottom: "10%",
+                    bottom: "5%",
                     scrollTrigger: {
                         trigger: ".envelop-container",
                         toggleActions: "play pause resume reset",
@@ -44,12 +44,12 @@ export const useApplySectionAnimation = () => {
             ".envelop",
             { left: "50%", xPercent: -50, bottom: "30%" },
             {
-                bottom: "10%",
+                bottom: "5%",
                 scrollTrigger: {
                     trigger: ".envelop-container",
                     toggleActions: "play pause resume reset",
 
-                    start: "top 50%",
+                    start: "top 60%",
                     end: "40% 60%",
                     scrub: 2,
                 },
