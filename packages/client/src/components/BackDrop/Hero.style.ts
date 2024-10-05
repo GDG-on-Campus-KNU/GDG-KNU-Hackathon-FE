@@ -72,6 +72,32 @@ export const Image = styled.img`
         }
     }
 
+    &.cloud8 {
+        width: 30%;
+        left: -50%;
+        top: 50%;
+
+        ${BREAKPOINT.MOBILE} {
+            width: 50%;
+        }
+    }
+    &.cloud9 {
+        width: 25%;
+        left: -50%;
+        top: 60%;
+        ${BREAKPOINT.MOBILE} {
+            width: 50%;
+        }
+    }
+    &.cloud10 {
+        width: 30%;
+        right: -50%;
+        top: 70%;
+        ${BREAKPOINT.MOBILE} {
+            width: 50%;
+        }
+    }
+
     &.star1 {
         top: 30%;
         left: 18%;

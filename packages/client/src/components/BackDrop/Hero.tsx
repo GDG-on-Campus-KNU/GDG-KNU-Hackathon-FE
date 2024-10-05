@@ -7,6 +7,9 @@ import cloud4 from "@/assets/images/cloud4.svg";
 import cloud5 from "@/assets/images/cloud5.svg";
 import cloud6 from "@/assets/images/cloud6.svg";
 import cloud7 from "@/assets/images/cloud7.svg";
+import cloud8 from "@/assets/images/cloud-common1.svg";
+import cloud9 from "@/assets/images/cloud-common2.svg";
+import cloud10 from "@/assets/images/cloud-common3.svg";
 import starRound from "@/assets/images/star-round.svg";
 import starShaped from "@/assets/images/star-shaped.svg";
 import sun from "@/assets/images/sun.svg";
@@ -110,6 +113,44 @@ export const HeroBackDrop = (props: HeroBackDropProps) => {
                 },
             },
         );
+
+        gsap.fromTo(
+            ".cloud8",
+            {},
+            {
+                left: "8%",
+                scrollTrigger: {
+                    start: "top top",
+                    end: `+=${props.endHeight + 1000}px`,
+                    scrub: 3,
+                },
+            },
+        );
+        gsap.fromTo(
+            ".cloud9",
+            {},
+            {
+                left: "8%",
+                scrollTrigger: {
+                    start: "top top",
+                    end: `+=${props.endHeight + 1500}px`,
+                    scrub: 3,
+                },
+            },
+        );
+        gsap.fromTo(
+            ".cloud10",
+            {},
+            {
+                right: "-8%",
+                scrollTrigger: {
+                    start: "top top",
+                    end: `+=${props.endHeight + 1000}px`,
+                    scrub: 3,
+                },
+            },
+        );
+
         gsap.fromTo(
             ".sunshine",
             {
@@ -168,6 +209,10 @@ export const HeroBackDrop = (props: HeroBackDropProps) => {
             <BackDropStyles.Image className="cloud cloud5" src={cloud5} alt="cloud" />
             <BackDropStyles.Image className="cloud cloud6" src={cloud6} alt="cloud" />
             <BackDropStyles.Image className="cloud cloud7" src={cloud7} alt="cloud" />
+
+            <BackDropStyles.Image className="cloud cloud8" src={cloud8} alt="cloud" />
+            <BackDropStyles.Image className="cloud cloud9" src={cloud9} alt="cloud" />
+            <BackDropStyles.Image className="cloud cloud10" src={cloud10} alt="cloud" />
 
             <BackDropStyles.SunContainer className="sun-container">
                 <BackDropStyles.Image className="sun" src={sun} alt="sun" />

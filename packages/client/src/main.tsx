@@ -6,6 +6,7 @@ import Page from "@/pages/Page";
 
 import { globalStyle } from "@/styles/global";
 
+import { fontStyles } from "./styles/fonts";
 import { Global } from "@emotion/react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,6 +17,6 @@ gsap.registerPlugin(ScrollTrigger);
 createRoot(document.getElementById("root")!).render(
     <>
         <Page />
-        <Global styles={[globalStyle]} />
+        <Global styles={[globalStyle, fontStyles]} />
     </>,
 );
