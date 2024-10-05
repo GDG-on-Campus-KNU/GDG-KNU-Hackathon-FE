@@ -27,7 +27,7 @@ export const IntroductionSection = () => {
                 }
             >
                 {data.introductionSection.topics.map((topic, index) => {
-                    return <TopicCard index={index} content={topic} />;
+                    return <TopicCard key={index} index={index} content={topic} />;
                 })}
             </TopicCardContainer>
         </>
