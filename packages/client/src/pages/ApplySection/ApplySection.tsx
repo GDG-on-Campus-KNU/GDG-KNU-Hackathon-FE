@@ -46,7 +46,7 @@ export const ApplySection = () => {
             <ApplySectionStyles.EnvelopWrapper id="apply-section">
                 <ApplySectionStyles.EnvelopContainer className="envelop-container">
                     <ApplySectionStyles.Form>
-                        <ApplySectionStyles.Logo src={logo} />
+                        <ApplySectionStyles.Logo src={logo} alt="apply-logo" />
 
                         <ApplySectionStyles.FormContainer>
                             <Input ref={nameRef} label="이름" type="text" />
@@ -88,8 +88,8 @@ export const ApplySection = () => {
                 </ApplySectionStyles.EnvelopContainer>
 
                 <ApplySectionStyles.Envelop>
-                    <ApplySectionStyles.EnvelopFront className="envelop" src={envelopFront} />
-                    <ApplySectionStyles.EnvelopBack className="envelop" src={envelopBack} />
+                    <ApplySectionStyles.EnvelopFront className="envelop" src={envelopFront} alt="envelop-cover" />
+                    <ApplySectionStyles.EnvelopBack className="envelop" src={envelopBack} alt="envelop-cover" />
                 </ApplySectionStyles.Envelop>
             </ApplySectionStyles.EnvelopWrapper>
         </>
