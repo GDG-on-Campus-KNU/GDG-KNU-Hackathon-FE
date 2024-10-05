@@ -32,7 +32,6 @@ export const TimeLineCard = (props: TimeLineCardProps) => {
                     start: "top 70%",
                     end: "bottom 70%",
                     toggleActions: "play play resume none",
-                    markers: true,
                 },
             },
         );

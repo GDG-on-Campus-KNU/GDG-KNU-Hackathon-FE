@@ -36,6 +36,10 @@ export const EnvelopContainer = styled.div`
     }
 `;
 
+export const Envelop = styled.div`
+    width: 100%;
+`;
+
 export const EnvelopBack = styled.img`
     z-index: 0;
     position: absolute;
@@ -102,7 +106,7 @@ export const FormContainer = styled.div`
         flex-shrink: 0;
     }
     label {
-        width: 100px;
+        width: 70px;
         span {
             margin-right: 10px;
             margin-left: auto;

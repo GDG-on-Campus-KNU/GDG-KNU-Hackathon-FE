@@ -15,10 +15,6 @@ export const InputElement = styled.input`
 export const InputLabel = styled.label`
     display: flex;
     align-items: center;
-
-    span {
-        margin: 0px auto;
-    }
 `;
 
 export const Container = styled.div`

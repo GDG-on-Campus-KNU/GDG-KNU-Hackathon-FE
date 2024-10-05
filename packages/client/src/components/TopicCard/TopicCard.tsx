@@ -26,7 +26,6 @@ export const TopicCard = (props: TopicCardProps) => {
                     trigger: topicCardRef.current,
                     start: "top 70%",
                     end: "bottom 70%",
-                    markers: true,
                 },
             },
         );
