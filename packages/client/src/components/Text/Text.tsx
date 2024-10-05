@@ -9,6 +9,11 @@ export interface TextProps {
 }
 
 export const Text = styled.span<TextProps>`
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    font-smooth: antialiased;
+
+    font-family: "AvantGrade";
     font-weight: ${(props) => props.weight ?? "normal"};
     color: ${(props) => props.color ?? "var(--color-white)"};
 
