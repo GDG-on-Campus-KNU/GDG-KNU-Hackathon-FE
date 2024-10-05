@@ -1,44 +1,35 @@
-import { Text } from "@/components/Text/Text";
 import { SectionTitle } from "@/components/Title/SectionTitle";
+import { TopicCard } from "@/components/TopicCard/TopicCard";
+import { TopicCardContainer } from "@/components/TopicCard/TopicCardContainer";
+
+import data from "@/__data__/index.json";
 
 export const IntroductionSection = () => {
     return (
         <>
             <SectionTitle
-                subtitle="INTRODUCE"
+                subtitle="MAKE PUBLIC"
                 title={
                     <>
-                        <span>VISION CHALLENGETHON 을</span> <br />
-                        <span>소개합니다</span>
+                        <span>VISION CHALLENGETHON 의</span> <br />
+                        <span>주제를 공개합니다</span>
                     </>
                 }
             />
 
-            <p>
-                <Text size="xs">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aspernatur aut voluptates laborum
-                    quos consectetur saepe numquam cum vitae, nostrum rerum ea delectus aliquid repellendus, aliquam
-                    maiores quia? Ullam, sunt!
-                </Text>
-
-                <Text size="xs">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aspernatur aut voluptates laborum
-                    quos consectetur saepe numquam cum vitae, nostrum rerum ea delectus aliquid repellendus, aliquam
-                    maiores quia? Ullam, sunt!
-                </Text>
-
-                <Text size="xs">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aspernatur aut voluptates laborum
-                    quos consectetur saepe numquam cum vitae, nostrum rerum ea delectus aliquid repellendus, aliquam
-                    maiores quia? Ullam, sunt!
-                </Text>
-
-                <Text size="xs">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aspernatur aut voluptates laborum
-                    quos consectetur saepe numquam cum vitae, nostrum rerum ea delectus aliquid repellendus, aliquam
-                    maiores quia? Ullam, sunt!
-                </Text>
-            </p>
+            <TopicCardContainer
+                title={
+                    <>
+                        <span>UN의 17가지 지속가능한 발전목표 중</span>
+                        <br />
+                        <span>하나 이상을 해결하는 것</span>
+                    </>
+                }
+            >
+                {data.introductionSection.topics.map((topic, index) => {
+                    return <TopicCard index={index} content={topic} />;
+                })}
+            </TopicCardContainer>
         </>
     );
 };
