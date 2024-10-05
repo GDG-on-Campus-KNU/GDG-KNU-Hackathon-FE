@@ -1,4 +1,5 @@
-import { SponsorCard } from "@/components/Card/Sponsor";
+import { SponsorCard } from "@/components/Sponsor/Card";
+import { SponsorCardContainer } from "@/components/Sponsor/CardContainer";
 import { SectionTitle } from "@/components/Title/SectionTitle";
 
 export interface SponsorSectionProps {
@@ -17,9 +18,11 @@ export const SponsorSection = (props: SponsorSectionProps) => {
                     </>
                 }
             />
-            {props.imgLists.map((img, index) => {
-                return <SponsorCard key={index} imgSrc={img} />;
-            })}
+            <SponsorCardContainer>
+                {props.imgLists.map((img, index) => {
+                    return <SponsorCard key={index} imgSrc={img} />;
+                })}
+            </SponsorCardContainer>
         </>
     );
 };

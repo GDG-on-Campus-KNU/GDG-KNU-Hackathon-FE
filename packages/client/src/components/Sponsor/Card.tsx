@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import gsap from "gsap";
 
-import * as SponsorCardStyles from "./Sponsor.style";
+import * as SponsorCardStyles from "./Card.style";
 import { useGSAP } from "@gsap/react";
 
 export interface SponsorCardProps {
@@ -18,9 +18,9 @@ export const SponsorCard = (props: SponsorCardProps) => {
             duration: 1,
             scrollTrigger: {
                 trigger: ref.current,
-                start: "top 50%",
-                end: "bottom 10%",
-                toggleActions: "play reverse play reverse",
+                start: "top 70%",
+                end: "bottom 70%",
+                toggleActions: "play none none none",
             },
         });
     });
