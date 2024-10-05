@@ -37,7 +37,9 @@ export const Item = styled.div`
     span {
         margin: 0px 5px;
     }
-    &:first-child > span:first-child {
-        display: none;
+    ${BREAKPOINT.MOBILE} {
+        &:first-child > span:first-child {
+            display: none;
+        }
     }
 `;
