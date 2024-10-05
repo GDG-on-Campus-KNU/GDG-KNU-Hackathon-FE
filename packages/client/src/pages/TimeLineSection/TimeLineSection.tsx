@@ -1,4 +1,8 @@
+import { TimeLineCard } from "@/components/TimeLine/Card";
+import { TimeLineContainer } from "@/components/TimeLine/Container";
 import { SectionTitle } from "@/components/Title/SectionTitle";
+
+import data from "@/__data__/index.json";
 
 export const TimeLineSection = () => {
     return (
@@ -12,6 +16,22 @@ export const TimeLineSection = () => {
                     </>
                 }
             />
+            {data.timelineSection.map((timeline) => {
+                return (
+                    <TimeLineContainer>
+                        {timeline.map((schedule) => {
+                            return (
+                                <TimeLineCard
+                                    date={schedule.date}
+                                    time={schedule.time}
+                                    title={schedule.title}
+                                    description={schedule.description}
+                                />
+                            );
+                        })}
+                    </TimeLineContainer>
+                );
+            })}
         </>
     );
 };
