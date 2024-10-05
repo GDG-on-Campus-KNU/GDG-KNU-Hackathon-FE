@@ -43,7 +43,7 @@ export const TimeLineCard = (props: TimeLineCardProps) => {
                 <Text size="m" weight="bold">
                     {props.date}
                 </Text>
-                <TimeLineCardStyles.Dot src={timelineDot} />
+                <TimeLineCardStyles.Dot src={timelineDot} alt="timeline-dot" />
             </TimeLineCardStyles.Aside>
 
             <TimeLineCardStyles.Line />
