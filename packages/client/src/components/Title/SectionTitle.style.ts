@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
     display: block;
 
+    margin-top: 200px;
     padding: 50px 0px;
 `;
 
