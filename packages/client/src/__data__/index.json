@@ -14,5 +14,72 @@
     },
     "sponsorSection": {
         "imgLists": ["/logo/logo-googleCloud.svg", "/logo/logo-swEdu.svg"]
-    }
+    },
+    "timelineSection": [
+        [
+            {
+                "date": "10월 16일",
+                "time": "00:00",
+                "title": "VISION CHALLENGETHON 접수 시작",
+                "description": "총 110명 선발"
+            }
+        ],
+        [
+            {
+                "date": "10월 31일",
+                "time": "23:59",
+                "title": "VISION CHALLENGETHON 접수 마감"
+            }
+        ],
+        [
+            {
+                "date": "11월 15일",
+                "time": "17:00",
+                "title": "행사 준비",
+                "description": "운영진 및 TF 10명 17:00 까지 호텔 집합"
+            },
+            {
+                "time": "18:30",
+                "title": "대회장소 집합 및 인원점검"
+            },
+            {
+                "time": "19:00",
+                "title": "대회 소개 및 운영진 소개 & 교수님 인사말",
+                "description": "정명훈 교수님, 정원일 교수님"
+            }
+        ],
+        [
+            {
+                "date": "11월 16일",
+                "time": "00:00",
+                "title": "야식 배부"
+            },
+            {
+                "time": "07:00",
+                "title": "개발 종료 및 예선 심사 시작",
+                "description": "코드 작성 종료"
+            },
+            {
+                "time": "09:00",
+                "title": "발표자료 제작 완료",
+                "description": "README, PPT"
+            },
+            {
+                "time": "09:30",
+                "title": "결전 진출팀 공지 및 발표 시작"
+            },
+            {
+                "time": "10:30",
+                "title": "결선 심사"
+            },
+            {
+                "time": "11:00",
+                "title": "수상 및 사진촬영"
+            },
+            {
+                "time": "11:30",
+                "title": "폐회식"
+            }
+        ]
+    ]
 }
