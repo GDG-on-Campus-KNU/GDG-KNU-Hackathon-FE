@@ -29,8 +29,8 @@ export const TimeLineCard = (props: TimeLineCardProps) => {
                 opacity: 1,
                 scrollTrigger: {
                     trigger: timelineRef.current,
-                    start: "top 40%",
-                    end: "bottom 40%",
+                    start: "top 70%",
+                    end: "bottom 70%",
                     toggleActions: "play play resume none",
                     markers: true,
                 },
