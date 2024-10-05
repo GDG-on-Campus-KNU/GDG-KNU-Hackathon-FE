@@ -4,8 +4,6 @@ import gsap from "gsap";
 
 import { Text } from "@/components/Text/Text";
 
-import logoNav from "@/assets/images/logoNav.svg";
-
 import * as NavBarStyles from "./NavBar.style";
 import { useGSAP } from "@gsap/react";
 
@@ -30,7 +28,6 @@ export const NavBar = (props: NavBarProps) => {
                     start: "top 0%",
                     end: "bottom 0%",
                     toggleActions: "play none reset none",
-                    markers: true,
                 },
             },
         );
@@ -40,7 +37,12 @@ export const NavBar = (props: NavBarProps) => {
         <NavBarStyles.Wrapper ref={navbarRef}>
             <NavBarStyles.Container>
                 <NavBarStyles.Item>
-                    <NavBarStyles.Logo src={logoNav} />
+                    <Text size="xs" weight="bold">
+                        VISION CHALLENGETHON
+                    </Text>
+                    <Text size="xs" weight="bold">
+                        2024. 11. 15 - 16
+                    </Text>
                 </NavBarStyles.Item>
 
                 <NavBarStyles.Item>
