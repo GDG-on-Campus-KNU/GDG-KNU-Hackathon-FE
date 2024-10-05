@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+*storybook.log
+
+.env
+
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
+
+scripts/server

@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { createRoot, hydrateRoot } from "react-dom/client";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+import gsap from "gsap";
+
+import Page from "@/pages/Page";
+
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
+
+if (import.meta.env.DEV) {
+    createRoot(document.getElementById("root")!).render(<Page />);
+}
+if (import.meta.env.PROD) {
+    hydrateRoot(document.getElementById("root") as Element, <Page />);
+}
