@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 import { Button } from "@/shared/components/ui/button";
 import { Scanner } from "@yudiel/react-qr-scanner";
 
-const QrCodeScanner = () => {
+const QrCodeScannerPage = () => {
     const [scanning, setScanning] = useState(false);
     const [scannedData, setScannedData] = useState<string | null>(null);
 
@@ -47,4 +47,4 @@ const QrCodeScanner = () => {
     );
 };
 
-export default QrCodeScanner;
+export default QrCodeScannerPage;

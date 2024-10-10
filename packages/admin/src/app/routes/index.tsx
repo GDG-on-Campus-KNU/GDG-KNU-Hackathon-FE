@@ -1,17 +1,16 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
-import MainPage from "@/pages/main";
-
 import { RouterPath } from "./path";
+import { PeopleManagementPage } from "@/feature/people-management";
 
 const router = createBrowserRouter([
     {
-        path: RouterPath.root,
-        element: <Navigate to={RouterPath.admin} replace />,
+        path: RouterPath.ROOT,
+        element: <Navigate to={RouterPath.ADMIN} replace />,
     },
     {
-        path: RouterPath.admin,
-        element: <MainPage />,
+        path: RouterPath.ADMIN,
+        element: <PeopleManagementPage />,
     },
 ]);
 
