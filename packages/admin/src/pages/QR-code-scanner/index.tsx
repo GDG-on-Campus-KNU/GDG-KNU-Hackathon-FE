@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 
-import { Button } from "@/components/ui/button";
-
+import { Button } from "@/shared/components/ui/button";
 import { Scanner } from "@yudiel/react-qr-scanner";
 
 const QrCodeScanner = () => {

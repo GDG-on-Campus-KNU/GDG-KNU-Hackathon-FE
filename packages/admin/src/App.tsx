@@ -1,5 +1,5 @@
-import { queryClient } from "./api/instance";
-import { Routes } from "./routes";
+import { Routes } from "@/app/routes";
+import { queryClient } from "@/shared/api/instance";
 import { QueryClientProvider } from "@tanstack/react-query";
 
 function App() {

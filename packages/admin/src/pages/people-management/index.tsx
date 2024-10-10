@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-import { CheckIcon, XIcon } from "lucide-react";
+import { CheckIcon, Table, XIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-
-import PERSON from "./__data__/PERSON.json";
+import PERSON from "./data/PERSON.json";
+import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
+import { TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/shared/components/ui/table";
 
 type person = {
     id: number;

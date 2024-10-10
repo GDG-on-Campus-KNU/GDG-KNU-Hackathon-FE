@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
-
-import CHAT from "./__data__/CHAT.json";
+import CHAT from "./data/CHAT.json";
+import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
+import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 type user = {
     id: number;
@@ -22,7 +21,7 @@ type message = {
 
 const users: user[] = CHAT;
 
-export default function ChatInterface() {
+const ChatInterface = () => {
     const [selectedUser, setSelectedUser] = useState<user | null>(null);
     const [messages, setMessages] = useState<message[]>([]);
     const [newMessage, setNewMessage] = useState("");
@@ -103,4 +102,6 @@ export default function ChatInterface() {
             </div>
         </div>
     );
-}
+};
+
+export default ChatInterface;
