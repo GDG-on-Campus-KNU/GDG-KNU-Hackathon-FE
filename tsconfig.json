@@ -27,7 +27,7 @@
             "path": "./packages/client"
         },
         {
-            "path": "./packages/admin"
+            "path": "./packages/admin/tsconfig.node.json"
         }
     ],
 
