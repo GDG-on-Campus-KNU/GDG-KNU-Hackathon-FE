@@ -67,6 +67,18 @@ export default tseslint.config(
             "import/no-unresolved": "off",
             ...reactHooks.configs.recommended.rules,
             "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+            "no-restricted-imports": [
+                {
+                    patterns: ["@/features/*/*"],
+                },
+                {
+                    paths: ["@/features/*/*"],
+                    message: "Please import from the index file of the feature",
+                },
+                "error",
+            ],
+            "no-relative-import-paths/no-relative-import-paths": ["warn", { allowSameFolder: true }],
+            "import/no-cycle": "error",
         },
     },
 );
