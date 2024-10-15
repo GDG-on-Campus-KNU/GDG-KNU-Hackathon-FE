@@ -17,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({ label, ...rest 
                     </Text>
                 )}
             </InputStyles.InputLabel>
-            <InputStyles.InputElement ref={ref} {...rest} />
+            <InputStyles.InputElement ref={ref} {...rest} id={label} />
         </InputStyles.Container>
     );
 });

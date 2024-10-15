@@ -9,7 +9,8 @@
         "build:prerender": "tsc -b && vite build && vite build --ssr src/main.server.tsx --outDir scripts/server && node scripts/pre-render.js",
         "lint": "eslint .",
         "preview": "vite preview",
-        "storybook": "storybook dev -p 6006"
+        "storybook": "storybook dev -p 6006",
+        "start": "serve dist --listen 5173"
     },
     "dependencies": {
         "@emotion/babel-plugin": "^11.12.0",
