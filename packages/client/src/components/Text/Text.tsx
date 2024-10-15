@@ -13,7 +13,8 @@ export const Text = styled.span<TextProps>`
     -moz-osx-font-smoothing: antialiased;
     font-smooth: antialiased;
 
-    font-family: "AvantGrade";
+    font-family: "AvantGrade", "Apple SD Gothic Neo", Sans-serif;
+    font-optical-sizing: auto;
     font-weight: ${(props) => props.weight ?? "normal"};
     color: ${(props) => props.color ?? "var(--color-white)"};
 

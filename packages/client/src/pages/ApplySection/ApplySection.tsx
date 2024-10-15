@@ -2,6 +2,7 @@ import { ApplyPositionContainer } from "@/components/ApplyPosition/Container";
 import { ApplyPositionItem } from "@/components/ApplyPosition/Item";
 import { SubmitButton } from "@/components/Button/SubmitButton";
 import { Input } from "@/components/Form/Input";
+import { Spinner } from "@/components/Spinner/Spinner";
 import { Text } from "@/components/Text/Text";
 import { SectionTitle } from "@/components/Title/SectionTitle";
 
@@ -19,6 +20,7 @@ export const ApplySection = () => {
     useApplySectionAnimation();
 
     const {
+        isPending,
         nameRef,
         studentIdRef,
         majorRef,
@@ -83,7 +85,9 @@ export const ApplySection = () => {
                             <Input ref={teamNameRef} label="팀이름" type="text" />
                         </ApplySectionStyles.FormContainer>
 
-                        <SubmitButton onClick={handleSubmit}>신청하기</SubmitButton>
+                        <SubmitButton onClick={!isPending ? handleSubmit : () => undefined}>
+                            {isPending ? <Spinner width="20px" height="20px" /> : "신청하기"}
+                        </SubmitButton>
                     </ApplySectionStyles.Form>
                 </ApplySectionStyles.EnvelopContainer>
 

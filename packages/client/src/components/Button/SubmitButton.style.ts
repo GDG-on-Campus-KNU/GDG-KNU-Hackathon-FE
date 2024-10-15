@@ -12,4 +12,8 @@ export const SubmitElement = styled.button`
     border-radius: 20px;
 
     background-color: var(--color-blue);
+
+    &:hover {
+        cursor: pointer;
+    }
 `;

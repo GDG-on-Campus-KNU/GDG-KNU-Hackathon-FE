@@ -2,7 +2,7 @@ export const applyService = {
     apply: async (body: ApplyRequestBody) => {
         applyService.isValid(body, ["name", "studentId", "major", "phoneNumber", "position", "teamName", "email"]);
 
-        const response = await fetch(import.meta.env.VITE_API_BASE_URL + "/apply", {
+        const response = await fetch(import.meta.env.VITE_API_BASE_URL + "/api/registrants", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" },

@@ -1,4 +1,5 @@
 import { createRoot, hydrateRoot } from "react-dom/client";
+import ReactGA from "react-ga4";
 
 import gsap from "gsap";
 
@@ -14,5 +15,6 @@ if (import.meta.env.DEV) {
     createRoot(document.getElementById("root")!).render(<Page />);
 }
 if (import.meta.env.PROD) {
+    ReactGA.initialize("G-5EH747HJS6");
     hydrateRoot(document.getElementById("root") as Element, <Page />);
 }

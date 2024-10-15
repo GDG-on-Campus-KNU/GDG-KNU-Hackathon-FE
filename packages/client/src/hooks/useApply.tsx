@@ -49,7 +49,7 @@ export const useApply = () => {
                     ),
                     description: (
                         <Text size="s" color="var(--color-blue)">
-                            이메일을 확인해 주세요
+                            전송된 이메일에 표기된 계좌번호로 입금해주세요
                         </Text>
                     ),
                 });
