@@ -16,5 +16,6 @@ export const Element = styled.button`
     &:hover {
         background-color: var(--color-blue);
         color: #fff;
+        cursor: pointer;
     }
 `;
