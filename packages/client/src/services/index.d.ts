@@ -1,4 +1,4 @@
-type ApplyPosition = "FRONTEND" | "BACKEND" | "ANDROID" | "DESIGN" | "PM" | null;
+type ApplyPosition = "FRONTEND" | "BACKEND" | "ANDROID" | "DESIGN" | "PM" | "AI" | null;
 
 type ApplyRequestBody = {
     name?: string;
