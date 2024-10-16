@@ -72,6 +72,7 @@ export const ApplySection = () => {
                                     <ApplyPositionItem value="FRONTEND">프론트엔드</ApplyPositionItem>
                                     <ApplyPositionItem value="BACKEND">백엔드</ApplyPositionItem>
                                     <ApplyPositionItem value="ANDROID">안드로이드</ApplyPositionItem>
+                                    <ApplyPositionItem value="AI">AI</ApplyPositionItem>
                                     <ApplyPositionItem value="DESIGN">디자인</ApplyPositionItem>
                                     <ApplyPositionItem value="PM">기획</ApplyPositionItem>
                                 </ApplyPositionContainer>
