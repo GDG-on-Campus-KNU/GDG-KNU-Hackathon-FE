@@ -1,13 +1,9 @@
 name: Deploy Admin Page to AWS
 
 on:
-    push:
+    pull_request:
         branches: ["develop"]
-env:
-    AWS_REGION: ap-northeast-2
-    S3_BUCKET_NAME: v-admin.gdsc-knu.com
-permissions:
-    contents: read
+        types: ["closed"]
 
 jobs:
     deploy:
