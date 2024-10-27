@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { PeopleResponseData } from "../api/mock/useGetPeople";
 
-const useDeletePerson = (initialPeople: PeopleResponseData[]) => {
+export const useDeletePerson = (initialPeople: PeopleResponseData[]) => {
     const [people, setPeople] = useState<PeopleResponseData[]>(initialPeople);
 
     const deletePerson = (id: number) => {
@@ -11,5 +11,3 @@ const useDeletePerson = (initialPeople: PeopleResponseData[]) => {
 
     return { people, setPeople, deletePerson };
 };
-
-export default useDeletePerson;

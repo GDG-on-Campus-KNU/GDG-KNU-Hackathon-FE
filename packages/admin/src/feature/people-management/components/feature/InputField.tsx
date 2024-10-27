@@ -5,7 +5,7 @@ type Props = {
     setSearchTerm: (term: string) => void;
 };
 
-const InputField = ({ searchTerm, setSearchTerm }: Props) => {
+export const InputField = ({ searchTerm, setSearchTerm }: Props) => {
     return (
         <div className="relative mb-4">
             <input
@@ -19,5 +19,3 @@ const InputField = ({ searchTerm, setSearchTerm }: Props) => {
         </div>
     );
 };
-
-export default InputField;

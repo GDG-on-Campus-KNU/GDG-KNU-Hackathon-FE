@@ -1,6 +1,9 @@
 import { PeopleResponseData } from "../api/mock/useGetPeople";
 
-const useUpdatePersonStatus = (people: PeopleResponseData[], setPeople: (people: PeopleResponseData[]) => void) => {
+export const useUpdatePersonStatus = (
+    people: PeopleResponseData[],
+    setPeople: (people: PeopleResponseData[]) => void,
+) => {
     const updatePersonStatus = (id: number, status: "accepted" | "rejected" | "checkedIn" | "checkedOut") => {
         setPeople(
             people.map((person) => {
@@ -25,5 +28,3 @@ const useUpdatePersonStatus = (people: PeopleResponseData[], setPeople: (people:
 
     return updatePersonStatus;
 };
-
-export default useUpdatePersonStatus;

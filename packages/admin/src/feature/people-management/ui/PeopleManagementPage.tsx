@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-import MainContents from "../components/common/MainContents";
-import { QRCodeScannerPage } from "@/feature/QR-code-scanner";
-import Header from "@/shared/components/feature/layout/header";
-import Sidebar from "@/shared/components/feature/layout/sidebar";
+import { MainContents, QRCodeScannerPage } from "@/feature";
+import { Header, Sidebar } from "@/shared";
 
-const PeopleManagementPage = () => {
+export const PeopleManagementPage = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [activePage, setActivePage] = useState("people");
 
@@ -24,5 +22,3 @@ const PeopleManagementPage = () => {
         </div>
     );
 };
-
-export default PeopleManagementPage;

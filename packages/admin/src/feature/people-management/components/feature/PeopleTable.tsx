@@ -8,7 +8,7 @@ type Props = {
     deletePerson: (id: number) => void;
 };
 
-const PeopleTable = ({ people, updatePersonStatus, deletePerson }: Props) => {
+export const PeopleTable = ({ people, updatePersonStatus, deletePerson }: Props) => {
     return (
         <div className="overflow-x-auto bg-white rounded-lg shadow">
             <table className="w-full">
@@ -88,5 +88,3 @@ const PeopleTable = ({ people, updatePersonStatus, deletePerson }: Props) => {
         </div>
     );
 };
-
-export default PeopleTable;
