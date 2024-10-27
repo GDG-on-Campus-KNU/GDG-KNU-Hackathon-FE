@@ -1,0 +1,32 @@
+name: bilud test
+
+on:
+    pull_request:
+        branches:
+            - develop
+        paths:
+            - "packages/admin/**"
+    workflow_dispatch:
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Install yarn package manager
+              run: |
+                  npm install -g yarn
+
+            - name: Install Dependencies
+              run: yarn admin install
+
+            - name: Build Test
+              run: yarn admin build
