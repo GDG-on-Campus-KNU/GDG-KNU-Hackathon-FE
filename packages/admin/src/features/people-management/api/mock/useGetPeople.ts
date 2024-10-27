@@ -1,4 +1,4 @@
-import PEOPLE from "@/feature/people-management/data/PEOPLE.json";
+import PEOPLE from "@/features/people-management/data/PEOPLE.json";
 
 export type PeopleResponseData = {
     id: number;

@@ -7,7 +7,7 @@ import {
     useUpdatePersonStatus,
     useFilteredPeople,
     useGetPeople,
-} from "@/feature";
+} from "@/features";
 
 export const MainContents = () => {
     const [searchTerm, setSearchTerm] = useState("");

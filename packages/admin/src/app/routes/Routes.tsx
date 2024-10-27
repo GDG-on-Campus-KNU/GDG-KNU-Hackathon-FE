@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { RouterPath } from "./path";
-import { PeopleManagementPage } from "@/feature/people-management";
+import { PeopleManagementPage } from "@/features";
 
 const router = createBrowserRouter([
     {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { MainContents, QRCodeScannerPage } from "@/feature";
+import { MainContents, QRCodeScannerPage } from "@/features";
 import { Header, Sidebar } from "@/shared";
 
 export const PeopleManagementPage = () => {
