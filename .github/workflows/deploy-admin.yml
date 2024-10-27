@@ -31,8 +31,11 @@ jobs:
                   echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env
                   echo "VITE_ENV"=${{ secrets.VITE_ENV }} >> .env
 
+            - name: Install Dependencies
+              run: yarn admin install
+
             - name: Build
-              run: CI='' yarn run build
+              run: yarn admin build
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
