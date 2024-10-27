@@ -1,10 +1,8 @@
 name: Deploy Admin Page to AWS
 
 on:
-    pull_request:
+    push:
         branches: ["develop"]
-        types: ["closed"]
-    workflow_dispatch:
 env:
     AWS_REGION: ap-northeast-2
     ADMIN_BUCKET_NAME: v-admin.gdsc-knu.com
