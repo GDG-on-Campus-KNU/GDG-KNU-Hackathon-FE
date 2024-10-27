@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import { PeopleResponseData } from "../api/mock/useGetPeople";
 
-const useFilteredPeople = (people: PeopleResponseData[], searchTerm: string) => {
+export const useFilteredPeople = (people: PeopleResponseData[], searchTerm: string) => {
     const filteredPeople = useMemo(() => {
         return people.filter(
             (person) =>
@@ -15,5 +15,3 @@ const useFilteredPeople = (people: PeopleResponseData[], searchTerm: string) => 
 
     return filteredPeople;
 };
-
-export default useFilteredPeople;

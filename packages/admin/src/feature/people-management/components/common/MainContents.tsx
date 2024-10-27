@@ -1,13 +1,15 @@
 import { useState } from "react";
 
-import { useGetPeople } from "../../api/mock/useGetPeople";
-import useDeletePerson from "../../hook/useDeletePerson";
-import useFilteredPeople from "../../hook/useFilteredPeople";
-import useUpdatePersonStatus from "../../hook/useUpdatePersonStatus";
-import InputField from "../feature/InputField";
-import PeopleTable from "../feature/PeopleTable";
+import {
+    InputField,
+    PeopleTable,
+    useDeletePerson,
+    useUpdatePersonStatus,
+    useFilteredPeople,
+    useGetPeople,
+} from "@/feature";
 
-const MainContents = () => {
+export const MainContents = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const { data } = useGetPeople();
@@ -26,5 +28,3 @@ const MainContents = () => {
         </main>
     );
 };
-
-export default MainContents;

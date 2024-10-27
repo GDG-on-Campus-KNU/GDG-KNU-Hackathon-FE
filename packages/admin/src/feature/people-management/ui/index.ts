@@ -1,0 +1,1 @@
+export { PeopleManagementPage } from "./PeopleManagementPage";

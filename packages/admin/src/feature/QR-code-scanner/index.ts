@@ -1,1 +1,1 @@
-export { default as QRCodeScannerPage } from "./ui";
+export * from "./ui";

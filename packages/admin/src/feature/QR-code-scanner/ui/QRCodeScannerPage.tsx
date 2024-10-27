@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
 
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@/shared";
 import { Scanner } from "@yudiel/react-qr-scanner";
 
-const QrCodeScannerPage = () => {
+export const QRCodeScannerPage = () => {
     const [scanning, setScanning] = useState(false);
     const [scannedData, setScannedData] = useState<string | null>(null);
 
@@ -46,5 +46,3 @@ const QrCodeScannerPage = () => {
         </div>
     );
 };
-
-export default QrCodeScannerPage;

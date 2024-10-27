@@ -4,7 +4,7 @@ type Props = {
     toggleSidebar: () => void;
 };
 
-const Header = ({ toggleSidebar }: Props) => {
+export const Header = ({ toggleSidebar }: Props) => {
     return (
         <header className="flex items-center justify-between p-4 bg-white shadow-md lg:hidden">
             <button className="p-2 rounded-md hover:bg-gray-100" onClick={toggleSidebar}>
@@ -14,5 +14,3 @@ const Header = ({ toggleSidebar }: Props) => {
         </header>
     );
 };
-
-export default Header;

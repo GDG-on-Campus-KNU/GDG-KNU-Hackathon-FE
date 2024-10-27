@@ -6,7 +6,7 @@ type Props = {
     setActivePage: (page: string) => void;
 };
 
-const Sidebar = ({ isSidebarOpen, activePage, setActivePage }: Props) => {
+export const Sidebar = ({ isSidebarOpen, activePage, setActivePage }: Props) => {
     return (
         <aside className={`${isSidebarOpen ? "block" : "hidden"} lg:block w-full lg:w-64 bg-white shadow-md`}>
             <nav className="flex flex-col p-4 space-y-2">
@@ -29,5 +29,3 @@ const Sidebar = ({ isSidebarOpen, activePage, setActivePage }: Props) => {
         </aside>
     );
 };
-
-export default Sidebar;
