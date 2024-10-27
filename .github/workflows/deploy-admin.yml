@@ -1,0 +1,53 @@
+name: Deploy Admin Page to AWS
+
+on:
+    push:
+        branches: ["release"]
+env:
+    AWS_REGION: ap-northeast-2
+    S3_BUCKET_NAME: v-admin.gdsc-knu.com
+permissions:
+    contents: read
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Install yarn
+              run: |
+                  npm install -g yarn
+
+            - name: Create .env file
+              run: |
+                  echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env
+                  echo "VITE_ENV"=${{ secrets.VITE_ENV }} >> .env
+
+            - name: Install Dependencies
+              run: yarn install--frozen-lockfile
+
+            - name: Build
+              run: CI='' yarn run build
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Upload to AWS S3
+              env:
+                  BUCKET_NAME: ${{secrets.ADMIN_BUCKET_NAME}}
+              run: aws s3 sync packages/admin/dist s3://$BUCKET_NAME --delete
+
+            - name: Invalidate Cloudfront Cache
+              run: aws cloudfront create-invalidation --distribution-id ${{secrets.ADMIN_CLOUDFRONT_ID}} --paths /*
