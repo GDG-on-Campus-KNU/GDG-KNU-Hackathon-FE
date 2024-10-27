@@ -4,6 +4,12 @@ on:
     pull_request:
         branches: ["develop"]
         types: ["closed"]
+    workflow_dispatch:
+env:
+    AWS_REGION: ap-northeast-2
+    ADMIN_BUCKET_NAME: vision.gdsc-knu.com
+permissions:
+    contents: read
 
 jobs:
     deploy:
@@ -25,7 +31,6 @@ jobs:
             - name: Create .env file
               run: |
                   echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env
-                  echo "VITE_ENV"=${{ secrets.VITE_ENV }} >> .env
 
             - name: Install Dependencies
               run: yarn admin install
@@ -42,7 +47,7 @@ jobs:
 
             - name: Upload to AWS S3
               env:
-                  BUCKET_NAME: ${{secrets.ADMIN_BUCKET_NAME}}
+                  BUCKET_NAME: ${{env.ADMIN_BUCKET_NAME}}
               run: aws s3 sync packages/admin/dist s3://$BUCKET_NAME --delete
 
             - name: Invalidate Cloudfront Cache
