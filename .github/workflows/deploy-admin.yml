@@ -3,6 +3,7 @@ name: Deploy Admin Page to AWS
 on:
     pull_request:
         branches: ["develop"]
+        types: ["closed"]
     workflow_dispatch:
 env:
     AWS_REGION: ap-northeast-2
