@@ -66,7 +66,7 @@ export const PeopleTable = ({ people, updatePersonStatus, isLoading, hasNextPage
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                     {isLoading
-                        ? Array.from({ length: 5 }).map((_, idx) => (
+                        ? Array.from({ length: 10 }).map((_, idx) => (
                               <tr key={idx} className="animate-pulse">
                                   <td className="px-6 py-4 whitespace-nowrap">
                                       <div className="w-3/4 h-4 rounded bg-slate-200" />
