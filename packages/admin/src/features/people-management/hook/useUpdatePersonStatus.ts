@@ -1,9 +1,6 @@
-import { PeopleResponseData } from "../api/mock/useGetPeople";
+import { ApplyPeople } from "../api";
 
-export const useUpdatePersonStatus = (
-    people: PeopleResponseData[],
-    setPeople: (people: PeopleResponseData[]) => void,
-) => {
+export const useUpdatePersonStatus = (people: ApplyPeople[], setPeople: (people: ApplyPeople[]) => void) => {
     const updatePersonStatus = (id: number, status: "accepted" | "rejected" | "checkedIn" | "checkedOut") => {
         setPeople(
             people.map((person) => {

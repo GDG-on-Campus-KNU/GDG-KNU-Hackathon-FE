@@ -1,14 +1,14 @@
 import { useMemo } from "react";
 
-import { PeopleResponseData } from "../api/mock/useGetPeople";
+import { ApplyPeople } from "../api";
 
-export const useFilteredPeople = (people: PeopleResponseData[], searchTerm: string) => {
+export const useFilteredPeople = (people: ApplyPeople[], searchTerm: string) => {
     const filteredPeople = useMemo(() => {
         return people.filter(
             (person) =>
                 person.name.includes(searchTerm) ||
-                person.studentId.includes(searchTerm) ||
-                person.phoneNumber.includes(searchTerm) ||
+                person.studentId.toString().includes(searchTerm) ||
+                person.phoneNumber.toString().includes(searchTerm) ||
                 person.major.includes(searchTerm),
         );
     }, [people, searchTerm]);

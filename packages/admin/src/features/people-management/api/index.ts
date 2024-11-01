@@ -1,2 +1,3 @@
-// export * from "./hook";
+export * from "./hook";
+export * from "./types";
 export * from "./mock";

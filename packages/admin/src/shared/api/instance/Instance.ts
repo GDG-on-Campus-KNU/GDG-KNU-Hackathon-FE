@@ -18,7 +18,7 @@ const initInstance = (config: AxiosRequestConfig): AxiosInstance => {
 };
 
 export const fetchInstance = initInstance({
-    baseURL: "https://api.example.com",
+    baseURL: `https://k8q4ci7a8j.execute-api.us-east-1.amazonaws.com`,
 });
 
 export const queryClient = new QueryClient({

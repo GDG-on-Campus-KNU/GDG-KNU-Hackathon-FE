@@ -1,0 +1,1 @@
+export { useGetApplicantList } from "./useGetApplicantList";
