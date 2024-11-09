@@ -19,10 +19,8 @@ export const QRCodeScannerPage = () => {
             alert("QR Code가 정상적으로 스캔되었습니다.");
 
             try {
-                // JSON 파싱
                 const parsedData = JSON.parse(result.text);
 
-                // studentId 추출
                 const studentId = parsedData.studentId;
                 setScannedStudentId(studentId);
             } catch (error) {
@@ -32,9 +30,6 @@ export const QRCodeScannerPage = () => {
             checkInApplicant();
         }
     };
-
-    console.log(scannedData);
-    console.log(typeof scannedStudentId);
 
     return (
         <div className="p-4 space-y-4">
