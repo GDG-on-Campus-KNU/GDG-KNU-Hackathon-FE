@@ -1,1 +1,1 @@
-declare module "@yudiel/react-qr-scanner";
+declare module "react-qr-reader";
