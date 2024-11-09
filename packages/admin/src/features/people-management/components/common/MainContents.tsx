@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 
-import {
-    InputField,
-    PeopleTable,
-    useUpdatePersonStatus,
-    useFilteredPeople,
-    useGetApplicantList,
-    ApplyPeople,
-} from "@/features";
+import { InputField, PeopleTable, useFilteredPeople, useGetApplicantList, ApplyPeople } from "@/features";
 
 export const MainContents = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -21,8 +14,6 @@ export const MainContents = () => {
         }
     }, [data]);
 
-    const updatePersonStatus = useUpdatePersonStatus(people, setPeople);
-
     const filteredPeople = useFilteredPeople(people, searchTerm);
 
     return (
@@ -31,7 +22,6 @@ export const MainContents = () => {
             <InputField searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <PeopleTable
                 people={filteredPeople}
-                updatePersonStatus={updatePersonStatus}
                 isLoading={isLoading}
                 hasNextPage={hasNextPage}
                 fetchNextPage={fetchNextPage}
