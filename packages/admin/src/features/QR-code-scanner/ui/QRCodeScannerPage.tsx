@@ -1,34 +1,57 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
+import { QrReader } from "react-qr-reader";
 
+import { usePutApplicantCheckIn } from "../api";
 import { Button } from "@/shared";
-import { Scanner } from "@yudiel/react-qr-scanner";
 
 export const QRCodeScannerPage = () => {
-    const [scanning, setScanning] = useState(false);
     const [scannedData, setScannedData] = useState<string | null>(null);
+    const [scanning, setScanning] = useState(false);
+    const [scannedStudentId, setScannedStudentId] = useState<number>(0);
 
-    const handleScan = useCallback((data: string | null) => {
-        if (data) {
-            setScannedData(data);
+    const { mutate: checkInApplicant } = usePutApplicantCheckIn(scannedStudentId);
+
+    const handleScan = (result: { text: string } | null) => {
+        if (result && result.text) {
+            setScannedData(result.text);
             setScanning(false);
-            console.log("QR Code scanned:", data);
-        }
-    }, []);
+            console.log("QR Code scanned:", result.text);
+            alert("QR Code가 정상적으로 스캔되었습니다.");
 
-    const handleError = useCallback((err: any) => {
-        console.error(err);
-    }, []);
+            try {
+                // JSON 파싱
+                const parsedData = JSON.parse(result.text);
+
+                // studentId 추출
+                const studentId = parsedData.studentId;
+                setScannedStudentId(studentId);
+            } catch (error) {
+                console.error("QR 코드 파싱 에러:", error);
+            }
+
+            checkInApplicant();
+        }
+    };
+
+    console.log(scannedData);
+    console.log(typeof scannedStudentId);
 
     return (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <h2 className="text-xl font-semibold">QR Code Scanner</h2>
             {scanning ? (
                 <div className="w-full max-w-md mx-auto">
-                    <Scanner
-                        containerStyle={{ marginTop: 5 }}
-                        stopDecoding={() => setScanning(false)} // Use this to stop the scan properly
-                        onDecode={handleScan}
-                        onError={handleError}
+                    <QrReader
+                        onResult={(result: { text: string }, error: any) => {
+                            if (result) {
+                                handleScan(result as { text: string });
+                            }
+                            if (error) {
+                                console.error("QR Reader error:", error);
+                            }
+                        }}
+                        constraints={{ facingMode: "environment", width: 1280, height: 720 }}
+                        style={{ width: "100%" }}
                     />
                     <Button onClick={() => setScanning(false)} className="mt-4">
                         Stop Scanning
