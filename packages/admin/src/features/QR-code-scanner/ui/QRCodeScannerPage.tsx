@@ -1,33 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QrReader } from "react-qr-reader";
 
 import { usePutApplicantCheckIn } from "../api";
 import { Button } from "@/shared";
 
 export const QRCodeScannerPage = () => {
-    const [scannedData, setScannedData] = useState<string | null>(null);
+    const [scannedDataList, setScannedDataList] = useState<{ studentId: number; message: string | null }[]>([]);
     const [scanning, setScanning] = useState(false);
-    const [scannedStudentId, setScannedStudentId] = useState<number>(0);
+    const [scannedStudentId, setScannedStudentId] = useState<number | null>(null);
 
-    const { mutate: checkInApplicant } = usePutApplicantCheckIn(scannedStudentId);
+    const { mutate: checkInApplicant } = usePutApplicantCheckIn();
+
+    useEffect(() => {
+        if (scannedStudentId !== null) {
+            checkInApplicant(scannedStudentId, {
+                onSuccess: () => updateMessage(scannedStudentId, "체크인 완료"),
+                onError: () => updateMessage(scannedStudentId, "체크인 실패"),
+            });
+        }
+    }, [scannedStudentId, checkInApplicant]);
+
+    const updateMessage = (studentId: number, message: string) => {
+        setScannedDataList((prevList) =>
+            prevList.map((data) => (data.studentId === studentId ? { ...data, message } : data)),
+        );
+    };
 
     const handleScan = (result: { text: string } | null) => {
         if (result && result.text) {
-            setScannedData(result.text);
-            setScanning(false);
-            console.log("QR Code scanned:", result.text);
-            alert("QR Code가 정상적으로 스캔되었습니다.");
-
+            const scannedText = result.text;
             try {
-                const parsedData = JSON.parse(result.text);
-
+                const parsedData = JSON.parse(scannedText);
                 const studentId = parsedData.studentId;
+
+                if (!scannedDataList.some((data) => data.studentId === studentId)) {
+                    setScannedDataList((prevList) => [...prevList, { studentId, message: null }]);
+                }
+
                 setScannedStudentId(studentId);
+                console.log("QR Code scanned:", scannedText);
             } catch (error) {
                 console.error("QR 코드 파싱 에러:", error);
             }
-
-            checkInApplicant();
         }
     };
 
@@ -37,9 +51,9 @@ export const QRCodeScannerPage = () => {
             {scanning ? (
                 <div className="w-full max-w-md mx-auto">
                     <QrReader
-                        onResult={(result: { text: string }, error: any) => {
+                        onResult={(result: { text: string } | null, error: any) => {
                             if (result) {
-                                handleScan(result as { text: string });
+                                handleScan(result);
                             }
                             if (error) {
                                 console.error("QR Reader error:", error);
@@ -55,10 +69,21 @@ export const QRCodeScannerPage = () => {
             ) : (
                 <Button onClick={() => setScanning(true)}>Start Scanning</Button>
             )}
-            {scannedData && (
+            {scannedDataList.length > 0 && (
                 <div className="mt-4">
-                    <h3 className="text-lg font-medium">Scanned Data:</h3>
-                    <p className="p-2 mt-2 bg-gray-100 rounded">{scannedData}</p>
+                    <h3 className="text-lg font-medium">QR 코드 스캔 결과</h3>
+                    <ul className="p-2 mt-2 space-y-2 bg-gray-100 rounded">
+                        {scannedDataList.map(({ studentId, message }, index) => (
+                            <li key={index} className="flex items-center p-2 bg-white rounded shadow">
+                                <span>학번: {studentId}</span>
+                                {message && (
+                                    <span className="px-2 py-1 ml-2 text-sm text-white bg-blue-500 rounded">
+                                        {message}
+                                    </span>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>
