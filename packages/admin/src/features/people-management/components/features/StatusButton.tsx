@@ -9,7 +9,12 @@ type Props = {
 
 export const StatusButton = ({ accepted, id }: Props) => {
     const { mutate: updatePersonStatus } = usePutDepositCheck(id);
+
     const handleChangeStatus = () => {
+        if (accepted) {
+            alert("이미 입금 완료 상태입니다.");
+            return;
+        }
         updatePersonStatus();
     };
 
